@@ -1,51 +1,33 @@
 <template>
   <div class="container">
-    <h1>Welcome, {{ userData.name }}</h1>
-    <img v-if="userData.picture" :src="userData.picture" alt="Profile Picture" class="profile-picture" />
-    <div class="bio-data">
-      <p><strong>Email:</strong> {{ userData.email }}</p>
-    </div>
-    <button @click="logout" class="logout-button">Logout</button>
+    <h2>Welcome !, Please Sign-in With Google to use our services</h2>
+    <p>
+      <button @click="signInWithGoogle" class="google-button">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo" class="google-logo" />
+        Sign In With Google
+      </button>
+    </p>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { getAuth, signOut } from 'firebase/auth';
-import { useRouter } from 'vue-router';
+import { ref } from "vue";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useRouter } from "vue-router";
 
-const auth = getAuth();
 const router = useRouter();
-const userData = ref({
-  name: '',
-  email: '',
-  picture: '',
-});
 
-const retrieveUserData = () => {
-  const user = auth.currentUser;
-  if (user) {
-    userData.value = {
-      name: user.displayName,
-      email: user.email,
-      picture: user.photoURL,
-    };
-  }
-};
-
-onMounted(retrieveUserData);
-
-const logout = async () => {
+const signInWithGoogle = async () => {
   try {
-    await signOut(auth);
-    router.push('/sign-in');
+    const result = await signInWithPopup(getAuth(), new GoogleAuthProvider());
+    router.push("/");
   } catch (error) {
     console.error(error);
   }
 };
 </script>
 
-<style scoped>
+<style>
 .container {
   display: flex;
   flex-direction: column;
@@ -54,20 +36,7 @@ const logout = async () => {
   height: 50vh;
 }
 
-.profile-picture {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin-top: 10px;
-}
-
-.bio-data {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.logout-button {
+.google-button {
   background-color: white;
   border: 1px solid #4285F4;
   color: #4285F4;
@@ -76,5 +45,10 @@ const logout = async () => {
   align-items: center;
   cursor: pointer;
   box-shadow: 1px 4px 10px rgba(25, 24, 24, 0.1);
+}
+
+.google-logo {
+  width: 20px;
+  margin-right: 10px;
 }
 </style>
