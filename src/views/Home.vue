@@ -1,7 +1,7 @@
 <template>
     <div class="home-container">
       <nav class="navbar">
-        <div class="brand">GateQuiz</div>
+        <div class="brand">QuizSphere Student's Dashboard</div>
         <div class="nav-links">
          
         <router-link to="/upcoming-quizzes" class="nav-link">Upcoming Quizzes</router-link>
@@ -49,7 +49,7 @@
   const logout = async () => {
     try {
       await signOut(auth);
-      router.push('/');
+      router.push('/home');
     } catch (error) {
       console.error(error);
     }

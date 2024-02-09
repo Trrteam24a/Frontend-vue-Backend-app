@@ -20,7 +20,7 @@ const router = useRouter();
 const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(getAuth(), new GoogleAuthProvider());
-    router.push("/");
+    router.push("/home");
   } catch (error) {
     console.error(error);
   }
