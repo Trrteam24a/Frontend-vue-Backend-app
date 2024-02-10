@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <h2>Welcome !, Please Sign-in With Google to use our services</h2>
+    <h1>Welcome Gate Aspirants ! </h1>
+    <h2>Please Sign-in with Google to use our App</h2>
     <p>
       <button @click="signInWithGoogle" class="google-button">
         <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo" class="google-logo" />
@@ -34,6 +35,7 @@ const signInWithGoogle = async () => {
   align-items: center;
   justify-content: center;
   height: 50vh;
+  margin-top: 5%;
 }
 
 .google-button {
@@ -45,6 +47,7 @@ const signInWithGoogle = async () => {
   align-items: center;
   cursor: pointer;
   box-shadow: 1px 4px 10px rgba(25, 24, 24, 0.1);
+  margin-top: 100%;
 }
 
 .google-logo {
