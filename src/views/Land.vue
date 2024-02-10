@@ -115,6 +115,7 @@ export default {
   top: 22%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-family: 'Open Sans', sans-serif; 
   text-align: center;
   color: white;
 }
@@ -124,6 +125,7 @@ export default {
   top: 34%;
   left: 50%; 
   transform: translate(-50%, -50%);
+  font-family: 'Open Sans', sans-serif; 
   text-align: center;
   color: white; 
 }
@@ -172,9 +174,7 @@ export default {
   color: white;
   cursor: pointer;
 }
-
-/* Style for button containers */
 .button-container {
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px; 
 }
 </style>
