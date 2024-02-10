@@ -11,7 +11,7 @@
         <h1>Unleash Your Potential<br></h1>
       </div>
       <div class="text-overlay-2">
-        <h1>With Mock Tests<br></h1>
+        <h1>With Mock Tests"<br></h1>
         <div class="button-container">
           <button class="get-started-btn" @click="toggleRoleButtons">Get Started</button>
         </div>
