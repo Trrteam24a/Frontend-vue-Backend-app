@@ -2,6 +2,9 @@
   <div>
     <header class="header">
       <div class="logo">QuizSphere</div>
+      <div class="button-container">
+        <button class="get-started-btn" @click="toggleRoleButtons">Get Started</button>
+      </div>
     </header>
     <div class="your-component">
       <div class="text-overlay">
@@ -12,9 +15,6 @@
       </div>
       <div class="text-overlay-2">
         <h1>With Mock Tests"<br></h1>
-        <div class="button-container">
-          <button class="get-started-btn" @click="toggleRoleButtons">Get Started</button>
-        </div>
         <div v-if="showButtons" class="selection-buttons">
           <div class="button-container">
             <router-link v-if="!studentSelected" to="/home" class="role-btn" @click="selectStudent">Student</router-link>
@@ -63,19 +63,33 @@ export default {
 <style scoped>
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; 
   align-items: center;
-  padding: 15px;
+  padding: 3px; 
   background-color: #333;
   color: white;
   position: fixed; 
   top: 0; 
-  width: 100%;
+  width: calc(100% - 20px); 
   z-index: 999; 
 }
 
 .logo {
   font-size: 30px;
+}
+
+.button-container {
+  margin-top: 16px; 
+}
+
+.get-started-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color:#910A67; 
+  color: white;
+  cursor: pointer;
 }
 
 .your-component {
@@ -104,7 +118,7 @@ export default {
 .text-overlay {
   position: absolute;
   top: 17%;
-  left: 50%;
+  left: 20%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
@@ -113,7 +127,7 @@ export default {
 .text-overlay-1 {
   position: absolute;
   top: 22%;
-  left: 50%;
+  left: 22%;
   transform: translate(-50%, -50%);
   font-family: 'Open Sans', sans-serif; 
   text-align: center;
@@ -123,7 +137,7 @@ export default {
 .text-overlay-2 {
   position: absolute;
   top: 34%;
-  left: 50%; 
+  left: 25%; 
   transform: translate(-50%, -50%);
   font-family: 'Open Sans', sans-serif; 
   text-align: center;
@@ -162,19 +176,5 @@ export default {
 
 .role-btn:hover {
   background-color:#007bff;
-}
-
-.get-started-btn {
-  padding: 10px 20px;
-  margin: 0 10px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  background-color:#910A67; 
-  color: white;
-  cursor: pointer;
-}
-.button-container {
-  margin-top: 20px; 
 }
 </style>
