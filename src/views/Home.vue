@@ -1,11 +1,11 @@
 <template>
   <div class="home-container">
+    <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="brand">QuizSphere Student's Dashboard</div>
       <div class="nav-links">
-       
-      <router-link to="/upcoming-quizzes" class="nav-link">Upcoming Quizzes</router-link>
-      <router-link to="/previous-attempts" class="nav-link">Previous Attempts</router-link>
+        <router-link to="/upcoming-quizzes" class="nav-link">Upcoming-Quizzes</router-link>
+        <router-link to="/previous-attempts" class="nav-link">Previous-Attempts</router-link>
         <div v-if="user" class="dropdown">
           <button class="nav-link dropdown-toggle">{{ user.displayName }}</button>
           <div class="dropdown-content">
@@ -13,13 +13,17 @@
             <button @click="logout" class="dropdown-item">Logout</button>
           </div>
         </div>
-        <router-link v-if="!user" to="/sign-in" class="nav-link">Sign In</router-link>
-      <router-link to="/about" class="nav-link">About Us</router-link> 
-    </div>
-    </nav>
-    <div class="image-container">
-        <img src="../assets/gate-exam-mock-test-online-for-free.png" alt="Gate Exam Image" class="gate-image" />
+        <router-link v-if="!user" to="/sign-in-teacher" class="nav-link">Sign In</router-link>
       </div>
+    </nav>
+
+    <!-- Image Container -->
+    <div class="image-container">
+      <img src="../assets/female stu1.png " alt="Female Student" class="gate-image female" />
+      <img src="../assets/stu2.png" alt="Male Student" class="gate-image male" />
+    </div>
+
+    <!-- Content -->
     <div class="content">
       <div class="user-info" v-if="user">
         <img :src="user.photoURL" alt="User Photo" class="user-photo" />
@@ -49,7 +53,7 @@ onMounted(() => {
 const logout = async () => {
   try {
     await signOut(auth);
-    router.push('/home');
+    router.push('/teacher');
   } catch (error) {
     console.error(error);
   }
@@ -78,7 +82,6 @@ const logout = async () => {
     z-index: 999; 
 }
 
-
 .brand {
     font-size: 30px;
 }
@@ -97,40 +100,39 @@ const logout = async () => {
 }
 
 .user-info {
-  position: absolute;
-  top: 39%; 
-  left: 49%; 
-  transform: translate(-50%, -50%); 
-  text-align: center;
-  font: 1em sans-serif;
-  color: #442222;
+    position: absolute;
+    top: 39%; 
+    left: 49%; 
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    font: 1em sans-serif;
+    color: #442222;
 }
 
 .user-photo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  display: block; 
-  margin-left: auto; 
-  margin-right: auto; 
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 .blinking-text {
-  animation: blink 1s infinite alternate;
+    animation: blink 1s infinite alternate;
 }
 
 @keyframes blink {
-  0% {
-      color: gold;
-      text-shadow: none;
-  }
-  100% {
-      color: white;
-      text-shadow: 0 0 5px gold;
-  }
+    0% {
+        color: gold;
+        text-shadow: none;
+    }
+    100% {
+        color: white;
+        text-shadow: 0 0 5px gold;
+    }
 }
-
 
 h2 {
     margin: 0;
@@ -165,6 +167,7 @@ h2 {
     background-color: #f1f1f1;
 }
 
+/* Media Query for smaller screens */
 @media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -190,18 +193,31 @@ h2 {
         margin-top: 20px;
     }
 }
-    .gate-image {
-        border-radius: 10px;
-        height: 100vh; 
-        width: 100%; 
-    }
 
+/* Image Container Styles */
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px; /* Adjust margin as needed */
+}
 
-    @media screen and (max-width: 768px) {
-        .gate-image {
-            height: auto; 
-            max-width: 100%; 
-        }
-    }
+/* Individual Image Styles */
+.gate-image {
+    border-radius: 10px;
+    max-height: 50vh; /* Adjust the height as needed */
+    width: auto; /* Ensure aspect ratio is maintained */
+}
+
+/* Additional Styles for Male Image */
+.male {
+    margin-top: 6%; /* Adjust margin-top as needed */
+    margin-left: 30%;
+  }
+
+/* Additional Styles for Female Image */
+.female {
+    margin-top: 7%; /* Adjust margin-top as needed */
+    margin-left: 5%;
+  }
 
 </style>

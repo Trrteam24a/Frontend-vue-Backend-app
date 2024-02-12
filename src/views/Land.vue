@@ -4,11 +4,12 @@
       <div class="logo">QuizSphere</div>
       <div class="button-container">
         <button class="get-started-btn" @click="toggleRoleButtons">Get Started</button>
+        <button href="#about-us-section" class="about-us-btn">About Us</button>
       </div>
     </header>
     <div class="your-component">
       <div class="text-overlay">
-        <h1>"Empowering Success:<br></h1>
+        <h1>"Empowering Success:<br><br></h1>
       </div>
       <div class="text-overlay-1">
         <h1>Unleash Your Potential<br></h1>
@@ -25,6 +26,7 @@
         </div>
       </div>
     </div>
+    <div id="about-us-section" class="about-us-section">     
     <div class="features">
       <h1>Why Choose QuizSphere ?<br></h1>
       <ul>
@@ -34,6 +36,7 @@
         <li>Know where you stand with AIR</li>
       </ul>
     </div>
+   </div>
   </div>
 </template>
 
@@ -72,10 +75,11 @@ export default {
   top: 0; 
   width: calc(100% - 20px); 
   z-index: 999; 
+  
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 50px;
 }
 
 .button-container {
@@ -90,6 +94,8 @@ export default {
   background-color:#910A67; 
   color: white;
   cursor: pointer;
+  margin-bottom: 10%;
+  margin-right: 10px;
 }
 
 .your-component {
@@ -127,7 +133,7 @@ export default {
 .text-overlay-1 {
   position: absolute;
   top: 22%;
-  left: 22%;
+  left: 25%;
   transform: translate(-50%, -50%);
   font-family: 'Open Sans', sans-serif; 
   text-align: center;
@@ -137,7 +143,7 @@ export default {
 .text-overlay-2 {
   position: absolute;
   top: 34%;
-  left: 25%; 
+  left: 34%; 
   transform: translate(-50%, -50%);
   font-family: 'Open Sans', sans-serif; 
   text-align: center;
@@ -175,6 +181,7 @@ export default {
 }
 
 .role-btn:hover {
-  background-color:#007bff;
+  background-color:#00ff5e;
+  color: rgb(89, 85, 85);
 }
 </style>
