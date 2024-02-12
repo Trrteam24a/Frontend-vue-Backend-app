@@ -11,10 +11,12 @@
   "dependencies": {
     "firebase": "^10.8.0",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "express": "^your_version"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.3",
     "vite": "^5.0.11"
   }
+  
 }
