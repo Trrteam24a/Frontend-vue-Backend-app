@@ -13,7 +13,7 @@
             <button @click="logout" class="dropdown-item">Logout</button>
           </div>
         </div>
-        <router-link v-if="!user" to="/sign-in-teacher" class="nav-link">Sign In</router-link>
+        <router-link v-if="!user" to="/sign-in" class="nav-link">Sign In</router-link>
       </div>
     </nav>
 
@@ -53,7 +53,7 @@ onMounted(() => {
 const logout = async () => {
   try {
     await signOut(auth);
-    router.push('/teacher');
+    router.push('/home');
   } catch (error) {
     console.error(error);
   }

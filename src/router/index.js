@@ -9,6 +9,7 @@ const router = createRouter({
     {path: '/feed', component: () => import("../views/Feed.vue")},
     {path: '/teacher', component: () => import("../views/Teacher.vue")},
     {path: '/sign-in-teacher', component: () => import("../views/sign_teacher.vue")},
+    {path: '/manual-quiz', component: () => import("../views/manual_quiz.vue")},
   ],
 });
 

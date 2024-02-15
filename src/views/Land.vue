@@ -4,12 +4,13 @@
       <div class="logo">QuizSphere</div>
       <div class="button-container">
         <button class="get-started-btn" @click="toggleRoleButtons">Get Started</button>
-        <button href="#about-us-section" class="about-us-btn">About Us</button>
+        <!-- Use a click event listener to trigger scrolling -->
+        <button class="about-us-btn" @click="scrollToAboutUs">About Us</button>
       </div>
     </header>
     <div class="your-component">
       <div class="text-overlay">
-        <h1>"Empowering Success:<br><br></h1>
+        <h1>"Empowering Success:<br><br><br></h1>
       </div>
       <div class="text-overlay-1">
         <h1>Unleash Your Potential<br></h1>
@@ -27,16 +28,37 @@
       </div>
     </div>
     <div id="about-us-section" class="about-us-section">     
-    <div class="features">
-      <h1>Why Choose QuizSphere ?<br></h1>
-      <ul>
-        <li>Topic-Wise Tests</li>
-        <li>Full Syllabus Tests</li>
-        <li>Mock Tests</li>
-        <li>Know where you stand with AIR</li>
-      </ul>
+  <div class="feature">
+    <img src="" alt="Feature 1">
+    <div class="feature-content">
+      <h2>Topic-Wise Tests</h2>
+      <p>Description of feature 1.</p>
     </div>
-   </div>
+  </div>
+  <div class="feature">
+    <img src="" alt="Feature 2">
+    <div class="feature-content">
+      <h2>Full Syllabus Tests</h2>
+      <p>Description of feature 2.</p>
+    </div>
+  </div>
+  <div class="feature">
+    <img src="" alt="Feature 3">
+    <div class="feature-content">
+      <h2>Mock Tests</h2>
+      <p>Description of feature 4.</p>
+    </div>
+  </div>
+  <div class="feature">
+    <img src="" alt="Feature 4">
+    <div class="feature-content">
+      <h2>Know where you stand with AIR</h2>
+      <p>Description of feature 4.</p>
+    </div>
+  </div>
+  
+</div>
+
   </div>
 </template>
 
@@ -52,12 +74,24 @@ export default {
   methods: {
     toggleRoleButtons() {
       this.showButtons = !this.showButtons;
+      // Scroll to top when toggling role buttons
+      this.scrollToTop();
     },
     selectStudent() {
       this.studentSelected = true;
     },
     selectTeacher() {
       this.teacherSelected = true;
+    },
+    
+    scrollToAboutUs() {
+      const aboutUsSection = document.getElementById('about-us-section');
+      
+      aboutUsSection.scrollIntoView({ behavior: 'smooth' });
+    },
+    
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 }
@@ -73,7 +107,7 @@ export default {
   color: white;
   position: fixed; 
   top: 0; 
-  width: calc(100% - 20px); 
+  width: calc(100% - 21px); 
   z-index: 999; 
   
 }
@@ -98,13 +132,25 @@ export default {
   margin-right: 10px;
 }
 
+.about-us-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color:#910A67; 
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10%;
+  margin-right: 10px;
+}
+
 .your-component {
   position: relative; 
   background-image: url('../assets/landing.jpg'); 
   background-size: cover; 
   background-position: center; 
-  height: calc(150vh - 80px); 
-  margin-top: 64px;
+  height: calc(160vh - 80px); 
+  margin-top: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,7 +227,64 @@ export default {
 }
 
 .role-btn:hover {
-  background-color:#00ff5e;
-  color: rgb(89, 85, 85);
+  background-color:#83e285;
+  color: white;
+}
+
+.about-us-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjusts to fill one screen */
+}
+
+.feature-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20%; /* Spacing between feature boxes */
+  padding: 20px; /* Padding around the feature container */
+  white-space: nowrap; /* Prevent wrapping of feature boxes */
+}
+
+.feature {
+  width: 300px; /* Adjust width of each box */
+  background-color: wheat; /* White background color */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(1, 1, 1, 1); /* Shadow effect */
+  padding: 20px;
+  display: inline-block; /* Display feature boxes inline */
+}
+
+.feature img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.feature-content p {
+  font-size: 14px;
+  color: #666;
+}
+
+.marquee {
+  animation: marquee 20s linear infinite; /* Adjust animation duration as needed */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 </style>
