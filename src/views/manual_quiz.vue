@@ -168,7 +168,7 @@ export default {
       }
     },
   formatTime(timeInSeconds) {
-      if (timeInSeconds === null) return '00:00'; // Handle case when timeLeft is null
+      if (timeInSeconds === null) return '00:00'; 
       const minutes = Math.floor(timeInSeconds / 60);
       const seconds = timeInSeconds % 60;
       return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;

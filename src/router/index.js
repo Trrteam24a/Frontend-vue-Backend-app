@@ -10,6 +10,7 @@ const router = createRouter({
     {path: '/teacher', component: () => import("../views/Teacher.vue")},
     {path: '/sign-in-teacher', component: () => import("../views/sign_teacher.vue")},
     {path: '/manual-quiz', component: () => import("../views/manual_quiz.vue")},
+    {path: '/excel-upload', component: () => import("../views/excel_quiz.vue")},
   ],
 });
 
